@@ -1,0 +1,70 @@
+main{
+    transition: 0.4s;
+    margin-top: 80px;
+}
+header{
+    position: fixed;
+    top: 0;
+    background-color: #1A191F;
+}
+.brand-name{
+    text-transform: uppercase;
+    font-weight: 500;
+    font-size: 28px;
+    letter-spacing: 2px;
+}
+.brand-name span{
+    color: #DD9904;
+}
+.icons{
+    cursor: pointer;
+    font-size: 20px;
+    user-select: none;
+}
+.icons:hover , .nav-right p:hover{
+    color: #DD9904;
+    transition: 0.4s;
+}
+.hamburger-menu{
+    font-size: 25px;
+}
+.mobile-menu{
+    width: 55%;
+    height: calc(100% - 66px);
+    position: fixed;
+    right: -55%;
+    top: 66px;
+    background-color: red;
+    transition: 0.4s ease;
+    border-top: 1px solid #DD9904;
+    z-index: 10;
+}
+/* .mobile-menu::after{
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: #2d1992d2;
+    width: 100%;
+    height: 100%;
+    left: -100%;
+} */
+.mobile-menu ul>li{
+    text-transform: uppercase;
+    user-select: none;
+}
+.saye{
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    left: 0;
+    top: 66px;
+    background-color: rgba(0, 0, 255, 0.362);
+    z-index: 5;
+}
+.parde{
+    transition: 0.4s;
+}
+.birang{
+    background-color: none;
+}

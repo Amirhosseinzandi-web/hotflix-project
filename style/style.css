@@ -1,70 +1,155 @@
-main{
+main {
     transition: 0.4s;
     margin-top: 80px;
 }
-header{
+
+header {
     position: fixed;
     top: 0;
     background-color: #1A191F;
 }
-.brand-name{
+
+.brand-name {
     text-transform: uppercase;
     font-weight: 500;
     font-size: 28px;
     letter-spacing: 2px;
 }
-.brand-name span{
+
+.brand-name span {
     color: #DD9904;
 }
-.icons{
+
+.icons {
     cursor: pointer;
     font-size: 20px;
     user-select: none;
 }
-.icons:hover , .nav-right p:hover{
+
+.nav-right>* {
+    transition: 0.4s;
+}
+
+.nav-right>*:hover,
+.nav-left>ul>li:hover {
     color: #DD9904;
     transition: 0.4s;
 }
-.hamburger-menu{
+
+.nav-left>ul>li {
+    cursor: pointer;
+}
+
+.nav-right .sign-in-btn {
+    border: 1px solid white;
+    transition: 0.4s;
+}
+
+.nav-right .sign-in-btn:hover {
+    border: 1px solid #DD9904;
+    transition: 0.4s;
+}
+
+.hamburger-menu {
     font-size: 25px;
 }
-.mobile-menu{
+
+.mobile-menu {
     width: 55%;
     height: calc(100% - 66px);
     position: fixed;
-    right: -55%;
+    right: -60%;
     top: 66px;
-    background-color: red;
+    background-color: #1A191F;
     transition: 0.4s ease;
-    border-top: 1px solid #DD9904;
+    border-top: 2px solid #DD9904;
     z-index: 10;
 }
-/* .mobile-menu::after{
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    background-color: #2d1992d2;
-    width: 100%;
-    height: 100%;
-    left: -100%;
-} */
-.mobile-menu ul>li{
+
+.mobile-menu ul>li {
     text-transform: uppercase;
-    user-select: none;
+    /* user-select: none; */
 }
-.saye{
+
+.shadow {
     width: 100%;
     height: 100%;
     position: fixed;
     left: 0;
     top: 66px;
-    background-color: rgba(0, 0, 255, 0.362);
+    z-index: 5;
+    transition: 0.4s ease;
+}
+
+.active {
+    background-color: rgba(26, 25, 31, 0.75);
     z-index: 5;
 }
-.parde{
+
+.deActive {
+    background-color: rgba(0, 0, 255, 0);
+    z-index: -1;
+    /* or visibility : hidden */
+}
+
+.inp-search {
+    background: #222028;
+    outline: none;
+    border: 2px solid transparent;
     transition: 0.4s;
 }
-.birang{
-    background-color: none;
+
+.inp-search:focus {
+    border: 2px solid #DD9904;
+    transition: 0.4s;
+}
+
+.parent-search-mobile {
+    position: absolute;
+    width: 100%;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #1A191F;
+    transition: 0.4s ease;
+}
+.parent-search-mobile input{
+    background-color: #222028;
+    outline: none;
+    border: 2px solid transparent;
+    transition: 0.4s ease;
+}
+.parent-search-mobile input:focus{
+    border: 2px solid #DD9904;
+    transition: 0.4s ease;
+}
+
+.parent-search-mobile .header__search-button {
+    top: 50%;
+    transform: translateY(-50%);
+    right: 20px;
+}
+.parent-search-mobile button{
+    transition: 0.4s ease;
+}
+.parent-search-mobile button:hover {
+    color: #DD9904;
+    transition: 0.4s ease;
+}
+.parent-search-mobile button i{
+    font-size: 18px;
+}
+.header__search-close-btn {
+    top: -50%;
+}
+
+.form {
+    position: relative;
+}
+
+.form button {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    right: 10px;
 }

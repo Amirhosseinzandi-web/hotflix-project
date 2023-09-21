@@ -7,6 +7,7 @@ import { useEffect, useState } from "react";
 
 const Header = () => {
     const [menuHamburger, setMenuHamburger] = useState(false)
+    const [dropDownMenu, setDropDownMenu] = useState(false)
 
 
     useEffect(() => {
@@ -19,21 +20,29 @@ const Header = () => {
 
     }, [menuHamburger])
 
-    const HeaderOpenBtn = () =>{
+    const HeaderOpenBtn = () => {
         document.querySelector(".parent-search-mobile").classList.remove("header__search-close-btn")
     }
 
-    const HeaderCloseBtn = () =>{
+    const HeaderCloseBtn = () => {
         document.querySelector(".parent-search-mobile").classList.add("header__search-close-btn")
+    }
+
+    const DropDownMenuToggleHandler = () => {
+        setDropDownMenu(!dropDownMenu)
+    }
+
+    const DropDownMenuToggleMouseEnter = (e) =>{
+        e.stopPropagation()
     }
 
     return (
         <>
             <header className="w-full header text-white">
-                <div className="parent-search-mobile flex header__search-close-btn xl:hidden">
-                    <div className="flex container mx-auto">
+                <div className="parent-search-mobile flex header__search-close-btn lg:hidden">
+                    <div className="flex container mx-auto px-3">
                         <div className="w-[95%] relative">
-                            <input className="px-6 py-2 w-full rounded xl:hidden" type="search" placeholder="Search..." />
+                            <input className="px-6 py-2 w-full rounded lg:hidden" type="search" placeholder="Search..." />
                             <button className="absolute text-white header__search-button">
                                 <i className="bi bi-search"></i>
                             </button>
@@ -45,22 +54,37 @@ const Header = () => {
                     </div>
                 </div>
                 <div className="container mx-auto">
-                    <nav className="w-[96%] mx-auto flex py-3 ">
+                    <nav className="mx-auto flex gap-9 py-3 px-4">
                         <div className="w-[60%] nav-left flex items-center">
                             <Link href={"/"}>
                                 <h1 className="brand-name"><span>hot</span>flix</h1>
                             </Link>
-                            <ul className="hidden text-white xl:flex justify-evenly w-full">
-                                <li className="">home<i className="bi bi-arrow-down-short"></i></li>
-                                <li className="">catalog<i className="bi bi-arrow-down-short"></i></li>
-                                <li className="">pricing plan</li>
-                                <li className="">...</li>
+                            <ul className="desktop-menu hidden text-white lg:flex justify-evenly w-full">
+                                <li className="uppercase font">home<i className="bi bi-arrow-down-short"></i></li>
+                                <li className="uppercase font">catalog<i className="bi bi-arrow-down-short"></i></li>
+                                <li className="uppercase font">pricing plan</li>
+                                <li className="dropDownMenuToggle relative" onClick={DropDownMenuToggleHandler}>...
+                                    <div className={`dropDownMenuBox ${dropDownMenu ? ("dropDownMenuBox-show") : ("dropDownMenuBox-hidden")}`}>
+                                        <ul>
+                                            <li>about</li>
+                                            <li>profile</li>
+                                            <li>contacts</li>
+                                            <li>help center</li>
+                                            <li>privacy policy</li>
+                                            <li>admin pages</li>
+                                            <li>sign in</li>
+                                            <li>sign up</li>
+                                            <li>forgot password</li>
+                                            <li>404 page</li>
+                                        </ul>
+                                    </div>
+                                </li>
                             </ul>
                         </div>
 
                         <div className="w-[40%] nav-right flex items-center justify-between">
-                            <i className="bi bi-search icons xl:hidden" onClick={HeaderOpenBtn}></i>
-                            <div className="hidden xl:flex form">
+                            <i className="bi bi-search icons lg:hidden" onClick={HeaderOpenBtn}></i>
+                            <div className="hidden lg:flex form">
                                 <input className=" inp-search py-2 px-4 rounded" placeholder="Search" type="search" />
                                 <button>
                                     <i className="bi bi-search"></i>
@@ -69,13 +93,13 @@ const Header = () => {
                             <p className="cursor-pointer">EN<i className="bi bi-arrow-down-short"></i></p>
                             <i className="bi bi-door-open icons md:hidden"></i>
                             <button className="hidden sign-in-btn md:block px-6 py-1 rounded">sign in</button>
-                            <i className={`${menuHamburger ? ("bi bi-x-lg") : ("bi bi-justify")} icons hamburger-menu xl:hidden`} onClick={() => setMenuHamburger(!menuHamburger)}></i>
+                            <i className={`${menuHamburger ? ("bi bi-x-lg") : ("bi bi-justify")} icons hamburger-menu lg:hidden`} onClick={() => setMenuHamburger(!menuHamburger)}></i>
                         </div>
                     </nav>
                 </div>
             </header>
 
-            <div className="mobile-menu xl:hidden">
+            <div className="mobile-menu lg:hidden">
                 <nav>
                     <ul className="text-white">
                         <li className="p-5">home<i className="bi bi-arrow-down-short"></i></li>

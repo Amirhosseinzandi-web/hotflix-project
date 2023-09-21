@@ -14,6 +14,8 @@
 body{
   background-color: whitesmoke;
   overflow-x: hidden;
+  background-color: #1A191F;
 }
 
-@import url("../style/style.css")
+@import url("../style/style.css");
+@import url(../style/responsive.css);

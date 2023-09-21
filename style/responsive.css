@@ -1,0 +1,15 @@
+@media (max-width:576px) {}
+
+@media (min-width:577px) {}
+
+@media (min-width:768px) {}
+
+@media (min-width:992px) {
+    .content .content__head>h1 {
+        font-size: 36px;
+    }
+}
+
+@media (min-width:1200px) {}
+
+@media (min-width:1400px) {}

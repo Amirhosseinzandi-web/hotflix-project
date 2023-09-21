@@ -1,12 +1,12 @@
 main {
     transition: 0.4s;
-    margin-top: 80px;
+    margin-top: 66px;
 }
 
 header {
     position: fixed;
     top: 0;
-    background-color: #1A191F;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.696);
 }
 
 .brand-name {
@@ -28,6 +28,7 @@ header {
 
 .nav-right>* {
     transition: 0.4s;
+    font-size: 14px;
 }
 
 .nav-right>*:hover,
@@ -38,6 +39,7 @@ header {
 
 .nav-left>ul>li {
     cursor: pointer;
+    transition: 0.4s;
 }
 
 .nav-right .sign-in-btn {
@@ -113,13 +115,15 @@ header {
     background-color: #1A191F;
     transition: 0.4s ease;
 }
-.parent-search-mobile input{
+
+.parent-search-mobile input {
     background-color: #222028;
     outline: none;
     border: 2px solid transparent;
     transition: 0.4s ease;
 }
-.parent-search-mobile input:focus{
+
+.parent-search-mobile input:focus {
     border: 2px solid #DD9904;
     transition: 0.4s ease;
 }
@@ -129,18 +133,26 @@ header {
     transform: translateY(-50%);
     right: 20px;
 }
-.parent-search-mobile button{
+
+.parent-search-mobile button {
     transition: 0.4s ease;
 }
+
 .parent-search-mobile button:hover {
     color: #DD9904;
     transition: 0.4s ease;
 }
-.parent-search-mobile button i{
+
+.parent-search-mobile button i {
     font-size: 18px;
 }
+
 .header__search-close-btn {
     top: -50%;
+}
+
+.desktop-menu li {
+    user-select: none;
 }
 
 .form {
@@ -152,4 +164,81 @@ header {
     top: 50%;
     transform: translateY(-50%);
     right: 10px;
+}
+
+.dropDownMenuBox {
+    position: absolute;
+    /* width: 200px; */
+    height: 260px;
+    background-color: #222028;
+    z-index: 10;
+    top: calc(68px - 25px);
+    overflow-y: scroll;
+    border-radius: 8px;
+    transition: 0.4s;
+}
+
+.dropDownMenuBox-show {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(3px);
+}
+
+.dropDownMenuBox-hidden {
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(0px);
+}
+
+.dropDownMenuBox::-webkit-scrollbar {
+    background-color: #1A191F;
+    width: 5px;
+    border-radius: 8px;
+}
+
+.dropDownMenuBox::-webkit-scrollbar-thumb {
+    background-color: #DD9904;
+    border-radius: 8px;
+}
+
+.dropDownMenuBox ul {
+    margin: 5px;
+}
+
+.dropDownMenuBox li {
+    color: white;
+    transition: 0.4s;
+    text-transform: capitalize;
+    padding: 10px 40px 10px 15px;
+    font-size: 15px;
+    text-align: left;
+    text-wrap: nowrap;
+}
+
+.dropDownMenuBox li:hover {
+    color: #DD9904;
+}
+
+/* ********************************************************* */
+.content {
+    min-height: 100vh;
+}
+
+.content .content__head>h1 {
+    font-size: 27px;
+}
+.content .content__head>p {
+    font-size: 13px;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+}
+.content .content__head>p>i {
+    font-size: 22px;
+    padding-left: 5px;
+    transition: 0.4s ease;
+}
+.content .content__head>p:hover i {
+    color: #DD9904;
+    transition: 0.4s ease;
 }

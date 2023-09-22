@@ -6,9 +6,8 @@ main {
 header {
     position: fixed;
     top: 0;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.696);
     background-color: #1A191F;
-    z-index: 50;
+    z-index: 999;
 }
 
 .brand-name {
@@ -67,7 +66,7 @@ header {
     background-color: #1A191F;
     transition: 0.4s ease;
     border-top: 2px solid #DD9904;
-    z-index: 10;
+    z-index: 100;
 }
 
 .mobile-menu ul>li {
@@ -87,7 +86,7 @@ header {
 
 .active {
     background-color: rgba(26, 25, 31, 0.75);
-    z-index: 5;
+    z-index: 50;
 }
 
 .deActive {
@@ -225,7 +224,9 @@ header {
 /* .content {
     min-height: 100vh;
 } */
-
+.content .content__head{
+    position: relative;
+}
 .content .content__head>h1 {
     font-size: 27px;
 }
@@ -235,6 +236,7 @@ header {
     display: flex;
     align-items: center;
     cursor: pointer;
+    user-select: none;
 }
 
 .content .content__head>p>i {
@@ -247,7 +249,35 @@ header {
     color: #DD9904;
     transition: 0.4s ease;
 }
-
+.content__head .mobile-filter-box{
+    background-color: #222028;
+    position: absolute;
+    z-index: 50;
+    transition: 0.4s ease;
+}
+.mobile-filter-box>ul{
+    margin: 10px;
+}
+.mobile-filter-box>ul>li{
+    padding: 7px 90px 7px 6px;
+    font-size: 14px;
+    cursor: pointer;
+    transition: 0.4s ease;
+}
+.mobile-filter-box>ul>li:hover{
+    color: #DD9904;
+    transition: 0.4s ease;
+}
+.mobile-filter-box-hide{
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(0px);
+}
+.mobile-filter-box-show{
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(5px);
+}
 .movie-items>div {
     position: relative;
 }
@@ -272,7 +302,6 @@ header {
     visibility: visible;
     background-color: #0000006e;
     transition: 0.3s;
-    z-index: 5;
 }
 
 .movie-items img {
@@ -306,6 +335,7 @@ header {
     font-size: 14px;
     top: 10px;
     left: 10px;
+    z-index: 10;
 }
 
 .imdb-rate-border-green {

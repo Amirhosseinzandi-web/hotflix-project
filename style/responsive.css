@@ -8,6 +8,9 @@
     .content .content__head>h1 {
         font-size: 36px;
     }
+    .movie-items figcaption{
+        font-size: 15px;
+    }
 }
 
 @media (min-width:1200px) {}

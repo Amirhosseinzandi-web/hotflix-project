@@ -9,7 +9,9 @@ header {
     background-color: #1A191F;
     z-index: 999;
 }
-
+.pointer-events-none{
+    pointer-events: none;
+}
 .brand-name {
     text-transform: uppercase;
     font-weight: 500;
@@ -221,11 +223,29 @@ header {
 }
 
 /* ********************************************************* */
-/* .content {
+.content {
+    background-image: url("../public/home__bg.jpg");
+    width: 100%;
     min-height: 100vh;
-} */
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    position: relative;
+}
+.content::before{
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.789);
+    filter: blur(95px); 
+}
+
 .content .content__head{
     position: relative;
+    border-bottom: 1px solid rgba(245, 245, 245, 0.072);
 }
 .content .content__head>h1 {
     font-size: 27px;
@@ -233,7 +253,6 @@ header {
 
 .content .content__head>p {
     font-size: 13px;
-    display: flex;
     align-items: center;
     cursor: pointer;
     user-select: none;
@@ -259,14 +278,20 @@ header {
     margin: 10px;
 }
 .mobile-filter-box>ul>li{
-    padding: 7px 90px 7px 6px;
-    font-size: 14px;
     cursor: pointer;
     transition: 0.4s ease;
 }
 .mobile-filter-box>ul>li:hover{
     color: #DD9904;
     transition: 0.4s ease;
+}
+.mobile-filter-box>ul>li>a{
+    display: block;
+    width: 100%;
+    height: 100%;
+    padding: 7px 90px 7px 6px;
+    font-size: 14px;
+    cursor: pointer;
 }
 .mobile-filter-box-hide{
     opacity: 0;
@@ -278,6 +303,7 @@ header {
     visibility: visible;
     transform: translateY(5px);
 }
+
 .movie-items>div {
     position: relative;
 }
@@ -348,4 +374,38 @@ header {
 
 .imdb-rate-border-red {
     border: 3px solid #eb5757;
+}
+
+.desktop-filter-box{
+}
+.desktop-filter-box ul{
+}
+.desktop-filter-box ul>li{
+    cursor: pointer;
+    transition: 0.4s ease;
+    padding: 10px 0;
+    position: relative;
+}
+.desktop-filter-box ul>li:nth-of-type(1){
+    color: #DD9904;
+}
+.desktop-filter-box ul>li:nth-of-type(1)>span{
+    opacity: 1;
+}
+.desktop-filter-box ul>li span{
+    display: block;
+    position: absolute;
+    background-color: #DD9904;
+    width: 100%;
+    height: 2px;
+    bottom: 0;
+    transition: 0.4s ease;
+    opacity: 0;
+}
+.desktop-filter-box ul>li:hover{
+    color: #DD9904;
+}
+.desktop-filter-box a{
+    font-size: 14px;
+    text-wrap: nowrap;
 }

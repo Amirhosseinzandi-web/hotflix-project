@@ -53,21 +53,29 @@ const MoviesData = () => {
 
 
 
-    const MovieFilterHandler = async (e) => {
+    const MovieFilterHandler = useCallback(async (e) => {
+
         document.querySelector(".movie-items").style.transition = `0s`;
         document.querySelector(".movie-items").style.opacity = `0`;
-        e.target.parentElement.parentElement.querySelectorAll("a").forEach(el=>{
+        e.target.parentElement.parentElement.querySelectorAll("a").forEach(el => {
             el.classList.remove("pointer-events-none")
         })
         e.target.classList.add("pointer-events-none");
-        if(window.matchMedia("(min-width:768px)".match)){
-            e.target.parentElement.parentElement.querySelectorAll("span").forEach(el=>{
-                el.style.opacity = `0`;
+
+        
+            e.target.parentElement.parentElement.querySelectorAll("a").forEach(el => {
+                let _span = el.nextElementSibling;
+                let _a = e.target;
+                if(window.matchMedia("(min-width:768px)").matches){
+                    _span.style.opacity = `0`;
+                    _a.nextElementSibling.style.opacity = `1`
+                }
                 el.parentElement.style.color = `white`
             })
-            e.target.parentElement.querySelector("span").style.opacity = `1`
-            e.target.parentElement.style.color = `#DD9904`
-        }
+            e.target.parentElement.style.color = `#DD9904`;
+            
+        
+
         let _innerText = e.target.innerText;
 
         switch (_innerText) {
@@ -87,7 +95,7 @@ const MoviesData = () => {
         document.querySelector(".movie-items").style.transition = `0.4s ease`
         document.querySelector(".movie-items").style.opacity = `1`
 
-    }
+    }, [filmsData])
 
 
 
@@ -107,7 +115,7 @@ const MoviesData = () => {
                 <div className="desktop-filter-box hidden md:block mt-3">
                     <ul className="flex w-[50%] gap-16">
                         <li>
-                            <a onClick={MovieFilterHandler}>ALL</a>
+                            <a className="pointer-events-none" onClick={MovieFilterHandler}>ALL</a>
                             <span></span>
                         </li>
 
@@ -125,8 +133,8 @@ const MoviesData = () => {
                 </div>
             </section>
 
-            <p className="text-white">{loading && ("loading...")}</p>
-            <p className="text-rose-400">{error && ("an error occured")}</p>
+            <p style={{ "zIndex": "5" }} className="text-white">{loading && ("loading...")}</p>
+            <p style={{ "zIndex": "5" }} className="text-rose-400">{error && ("an error occured")}</p>
 
 
             <section className="movie-items flex flex-wrap justify-evenly gap-3 mt-5">
@@ -136,6 +144,9 @@ const MoviesData = () => {
                         <div key={items.id} className="text-white flex flex-col w-[45%] sm:w-[30%] md:w-[23%] lg:w-[18%]">
                             <figure className=" rounded-md overflow-hidden">
                                 <Image src={items.poster} width={200} height={200} alt={items.title} property="true" />
+                                <div className="play-icon">
+                                    <Link href={`/3`}><i className="bi bi-play-fill"></i></Link>
+                                </div>
                             </figure>
                             <figcaption className="py-2">{items.title}</figcaption>
                             <p>{items.genres.join(" , ")}</p>

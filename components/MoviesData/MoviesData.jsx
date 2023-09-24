@@ -11,7 +11,7 @@ const MoviesData = () => {
     const [filmsData, setFilmsData] = useState([])
     const [filmsDataAllFilter, setFilmsDataAllFilter] = useState([])
     const [error, setError] = useState(false)
-    const [loading, setLoading] = useState(false)
+    const [loading, setLoading] = useState(true)
     const [MobilesMovieBtnFilterToggle, setMobilesMovieBtnFilterToggle] = useState(false)
 
 

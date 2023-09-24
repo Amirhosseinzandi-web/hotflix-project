@@ -145,7 +145,7 @@ const MoviesData = () => {
                             <figure className=" rounded-md overflow-hidden">
                                 <Image src={items.poster} width={200} height={200} alt={items.title} property="true" />
                                 <div className="play-icon">
-                                    <Link href={`/3`}><i className="bi bi-play-fill"></i></Link>
+                                    <Link href={`/${items.id}`}><i className="bi bi-play-fill"></i></Link>
                                 </div>
                             </figure>
                             <figcaption className="py-2">{items.title}</figcaption>

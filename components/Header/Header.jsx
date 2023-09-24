@@ -28,13 +28,20 @@ const Header = () => {
         document.querySelector(".parent-search-mobile").classList.add("header__search-close-btn")
     }
 
-    const DropDownMenuToggleHandler = () => {
-        setDropDownMenu(!dropDownMenu)
-    }
-
-    const DropDownMenuToggleMouseEnter = (e) =>{
+    const DropDownMenuToggleHandler = (e) => {
+        setDropDownMenu(!dropDownMenu);
         e.stopPropagation()
     }
+
+    useEffect(()=>{
+
+        window.addEventListener("click" , ()=>{
+            if(document.querySelector(".dropDownMenuBox").classList.contains("dropDownMenuBox-show")){
+                setDropDownMenu(false)
+            }
+        })
+
+    },[dropDownMenu])
 
     return (
         <>
@@ -65,18 +72,20 @@ const Header = () => {
                                 <li className="uppercase font">pricing plan</li>
                                 <li className="dropDownMenuToggle relative" onClick={DropDownMenuToggleHandler}>...
                                     <div className={`dropDownMenuBox ${dropDownMenu ? ("dropDownMenuBox-show") : ("dropDownMenuBox-hidden")}`}>
-                                        <ul>
-                                            <li>about</li>
-                                            <li>profile</li>
-                                            <li>contacts</li>
-                                            <li>help center</li>
-                                            <li>privacy policy</li>
-                                            <li>admin pages</li>
-                                            <li>sign in</li>
-                                            <li>sign up</li>
-                                            <li>forgot password</li>
-                                            <li>404 page</li>
-                                        </ul>
+                                        <div>
+                                            <ul>
+                                                <li>about</li>
+                                                <li>profile</li>
+                                                <li>contacts</li>
+                                                <li>help center</li>
+                                                <li>privacy policy</li>
+                                                <li>admin pages</li>
+                                                <li>sign in</li>
+                                                <li>sign up</li>
+                                                <li>forgot password</li>
+                                                <li>404 page</li>
+                                            </ul>
+                                        </div>
                                     </div>
                                 </li>
                             </ul>

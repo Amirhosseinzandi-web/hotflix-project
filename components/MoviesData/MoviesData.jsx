@@ -102,7 +102,7 @@ const MoviesData = () => {
     return (
         <>
             <section className="content__head text-white">
-                <h1>New items</h1>
+                <h1>Movie items</h1>
                 <p onClick={MobileMoviesHandler} className="mt-3 flex md:hidden">NEW RELEASES <i className={`${MobilesMovieBtnFilterToggle ? ("bi bi-x-lg icons") : ("bi bi-filter-left")}`}></i></p>
                 <div className={`mobile-filter-box md:hidden ${MobilesMovieBtnFilterToggle ? ("mobile-filter-box-show") : ("mobile-filter-box-hide")}`}>
                     <ul>

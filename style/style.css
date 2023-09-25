@@ -236,7 +236,7 @@ header {
 }
 
 .bg {
-    background-image: url("../public/website-background.gif");
+    background-image: url("../public/home__bg.jpg");
     width: 100%;
     min-height: 100vh;
     background-repeat: no-repeat;

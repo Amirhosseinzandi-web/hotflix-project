@@ -1,5 +1,6 @@
 import Header from '@/components/Header/Header'
 import './globals.css'
+import { ContextApi } from '@/components/Context/Context'
 
 
 export const metadata = {
@@ -9,13 +10,15 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en">
-      <body>
-        <Header />
-        <main>
-          {children}
-        </main>
-      </body>
-    </html>
+    <ContextApi>
+      <html lang="en">
+        <body>
+          <Header />
+          <main>
+            {children}
+          </main>
+        </body>
+      </html>
+    </ContextApi>
   )
 }

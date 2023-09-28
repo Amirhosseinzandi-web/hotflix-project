@@ -2,12 +2,16 @@
 
 
 import Link from "next/link";
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
+import { Api } from "../Context/Context";
 
 
 const Header = () => {
+    const { filmsData, setSearchStatus } = useContext(Api);
+
     const [menuHamburger, setMenuHamburger] = useState(false)
     const [dropDownMenu, setDropDownMenu] = useState(false)
+    const [searchHandler, setSearchHandler] = useState("")
 
 
     useEffect(() => {
@@ -33,15 +37,35 @@ const Header = () => {
         e.stopPropagation()
     }
 
-    useEffect(()=>{
+    useEffect(() => {
 
-        window.addEventListener("click" , ()=>{
-            if(document.querySelector(".dropDownMenuBox").classList.contains("dropDownMenuBox-show")){
+        window.addEventListener("click", () => {
+            if (document.querySelector(".dropDownMenuBox").classList.contains("dropDownMenuBox-show")) {
                 setDropDownMenu(false)
             }
         })
 
-    },[dropDownMenu])
+    }, [dropDownMenu])
+
+
+
+    useEffect(() => {
+        document.querySelectorAll(".movie-items>div").forEach(items => {
+            let _figCaption = items.children[1]
+            if (_figCaption.innerText.toLowerCase().includes(searchHandler.toLowerCase())) {
+                items.style.display = "flex";
+                setSearchStatus(false)
+            } else {
+                items.style.display = "none";
+
+            }
+            if(document.querySelectorAll(".movie-items>div[style='display: flex;']").length===0){
+                setSearchStatus(true);
+            }
+        })
+        
+    }, [searchHandler])
+
 
     return (
         <>
@@ -49,7 +73,7 @@ const Header = () => {
                 <div className="parent-search-mobile flex header__search-close-btn lg:hidden">
                     <div className="flex container mx-auto px-3">
                         <div className="w-[95%] relative">
-                            <input className="px-6 py-2 w-full rounded lg:hidden" type="search" placeholder="Search..." />
+                            <input className="px-6 py-2 w-full rounded lg:hidden" value={searchHandler} onChange={(e) => setSearchHandler(e.target.value)} type="search" placeholder="Search..." />
                             <button className="absolute text-white header__search-button">
                                 <i className="bi bi-search"></i>
                             </button>
@@ -94,7 +118,7 @@ const Header = () => {
                         <div className="w-[40%] nav-right flex items-center justify-between">
                             <i className="bi bi-search icons lg:hidden" onClick={HeaderOpenBtn}></i>
                             <div className="hidden lg:flex form">
-                                <input className=" inp-search py-2 px-4 rounded" placeholder="Search" type="search" />
+                                <input className=" inp-search py-2 px-4 rounded" value={searchHandler} onChange={(e) => setSearchHandler(e.target.value)} placeholder="Search" type="search" />
                                 <button>
                                     <i className="bi bi-search"></i>
                                 </button>

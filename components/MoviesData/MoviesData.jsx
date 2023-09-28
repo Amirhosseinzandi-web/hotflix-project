@@ -1,14 +1,17 @@
 "use client"
 
-import { useCallback, useEffect, useState } from "react"
+import { useCallback, useContext, useEffect, useState } from "react"
 import Image from "next/image"
 import Link from "next/link"
+import { Api } from "../Context/Context"
 
 
 
 
 const MoviesData = () => {
-    const [filmsData, setFilmsData] = useState([])
+    const {filmsData, setFilmsData , searchStatus} = useContext(Api)
+
+
     const [filmsDataAllFilter, setFilmsDataAllFilter] = useState([])
     const [error, setError] = useState(false)
     const [loading, setLoading] = useState(true)
@@ -135,10 +138,11 @@ const MoviesData = () => {
 
             <p style={{ "zIndex": "5" }} className="text-white">{loading && ("loading...")}</p>
             <p style={{ "zIndex": "5" }} className="text-rose-400">{error && ("an error occured")}</p>
+            <p style={{ "zIndex": "5" }} className={`text-white mt-3 ${searchStatus && ("block")}`}>{searchStatus && ("nothing to show")}</p>
 
 
             <section className="movie-items flex flex-wrap justify-evenly gap-3 mt-5">
-
+    
                 {
                     filmsData && filmsData.map(items => (
                         <div key={items.id} className="text-white flex flex-col w-[45%] sm:w-[30%] md:w-[23%] lg:w-[18%]">

@@ -308,12 +308,6 @@ header {
     cursor: pointer;
     transition: 0.4s ease;
 }
-
-.mobile-filter-box>ul>li:hover {
-    color: #DD9904;
-    transition: 0.4s ease;
-}
-
 .mobile-filter-box>ul>li>a {
     display: block;
     width: 100%;
@@ -321,8 +315,12 @@ header {
     padding: 7px 90px 7px 6px;
     font-size: 14px;
     cursor: pointer;
+    transition: 0.4s ease;
 }
-
+.mobile-filter-box>ul>li>a:hover {
+    color: #DD9904;
+    transition: 0.4s ease;
+}
 .mobile-filter-box-hide {
     opacity: 0;
     visibility: hidden;

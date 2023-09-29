@@ -100,7 +100,7 @@ const MoviesData = () => {
 
     }, [filmsData])
 
-
+    
 
     return (
         <>

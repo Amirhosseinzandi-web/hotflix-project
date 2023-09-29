@@ -1,4 +1,5 @@
 import Image from "next/image";
+import NotFound from "../NotFound";
 
 const getData = async (id) => {
     const data = await fetch(`https://moviesapi.ir/api/v1/movies/${id}`)
@@ -8,6 +9,12 @@ const getData = async (id) => {
 const page = async ({ params }) => {
     const { id } = params;
     const data = await getData(id);
+
+    if(!data.id || data.id>10){
+        return <NotFound/>
+    }
+
+
     return (
         <section className="w-full content py-9">
             <div className="bg bg-details"></div>
@@ -52,19 +59,19 @@ const page = async ({ params }) => {
 
                             <div className="w-[47%] h-[50%]">
                                 <figure>
-                                    <Image priority={true} width={500} height={500} alt={data.title} src={data.images[0]} />
+                                    <Image priority={true} width={500} height={500} alt={data.title} src={data.images && data.images[0]} />
                                 </figure>
                             </div>
 
                             <div className="w-[47%] h-[50%]">
                                 <figure>
-                                    <Image priority={true} width={500} height={500} alt={data.title} src={data.images[1]} />
+                                    <Image priority={true} width={500} height={500} alt={data.title} src={data.images && data.images[1]} />
                                 </figure>
                             </div>
 
                             <div className="w-full h-[50%]">
                                 <figure>
-                                    <Image priority={true} width={500} height={500} alt={data.title} src={data.images[2]} />
+                                    <Image priority={true} width={500} height={500} alt={data.title} src={data.images && data.images[2]} />
                                 </figure>
                             </div>
 

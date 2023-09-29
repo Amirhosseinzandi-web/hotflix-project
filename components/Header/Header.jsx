@@ -64,7 +64,7 @@ const Header = () => {
             }
         })
         
-    }, [searchHandler])
+    }, [searchHandler , filmsData])
 
 
     return (

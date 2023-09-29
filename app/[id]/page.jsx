@@ -10,7 +10,7 @@ const page = async ({ params }) => {
     const { id } = params;
     const data = await getData(id);
 
-    if(!data.id || data.id>10){
+    if(!data.id || data.id>15){
         return <NotFound/>
     }
 

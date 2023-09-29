@@ -26,10 +26,15 @@ const MoviesData = () => {
             setLoading(true)
 
             try {
-                const data = await fetch("https://moviesapi.ir/api/v1/movies?page={page}")
-                const response = await data.json()
-                setFilmsData(response.data)
-                setFilmsDataAllFilter(response.data)
+                const data1 = await fetch("https://moviesapi.ir/api/v1/movies?page=1")
+                const response1 = await data1.json()
+                const data2 = await fetch("https://moviesapi.ir/api/v1/movies?page=2")
+                const response2 = await data2.json()
+                const merge = [...response1.data , ...response2.data];
+                const merge1 = merge.slice(0 , 15)
+                const filmsData = [...merge1]
+                setFilmsData(filmsData)
+                setFilmsDataAllFilter(filmsData)
                 setLoading(false)
             }
             catch (error) {
@@ -80,7 +85,7 @@ const MoviesData = () => {
         
 
         let _innerText = e.target.innerText;
-
+         
         switch (_innerText) {
             case "ALL": {
                 setFilmsData(filmsDataAllFilter);
